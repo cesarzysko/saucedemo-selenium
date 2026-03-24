@@ -3,6 +3,7 @@ namespace Tests;
 using Business;
 using Core;
 using Core.WebDriver.Factory;
+using TestData;
 
 [TestFixtureSource(typeof(Config), nameof(Config.DriverFactories))]
 [Parallelizable(ParallelScope.All)]
