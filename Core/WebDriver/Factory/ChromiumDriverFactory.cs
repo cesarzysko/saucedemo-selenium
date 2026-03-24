@@ -3,7 +3,6 @@ namespace Core.WebDriver.Factory;
 using OpenQA.Selenium.Chromium;
 
 public abstract class ChromiumDriverFactory
-    : WebDriverFactory
 {
     protected static TOptions CreateOptions<TOptions>()
         where TOptions : ChromiumOptions, new()

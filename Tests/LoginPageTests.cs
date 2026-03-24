@@ -7,7 +7,7 @@ using TestData;
 
 [TestFixtureSource(typeof(Config), nameof(Config.DriverFactories))]
 [Parallelizable(ParallelScope.All)]
-public sealed class LoginPageTests(WebDriverFactory driverFactory)
+public sealed class LoginPageTests(IWebDriverFactory driverFactory)
     : TestsBase(driverFactory)
 {
     [TestCaseSource(typeof(LoginPageTestsData), nameof(LoginPageTestsData.GetAnyCredentials))]

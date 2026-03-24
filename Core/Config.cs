@@ -35,7 +35,7 @@ public static class Config
 
     public static string Url { get; private set; }
 
-    public static IReadOnlyList<WebDriverFactory> DriverFactories { get; private set; }
+    public static IReadOnlyList<IWebDriverFactory> DriverFactories { get; private set; }
 
     public static double TimeoutSeconds { get; private set; }
 
@@ -71,7 +71,7 @@ public static class Config
         return string.Empty;
     }
 
-    private static IReadOnlyList<WebDriverFactory> GetDriverFactories()
+    private static IReadOnlyList<IWebDriverFactory> GetDriverFactories()
     {
         var driverTypes = _conf.Get<string[]>(BrowsersLabel)?.Select(Enum.Parse<DriverType>).ToList();
         if (driverTypes != null && driverTypes.Count != 0)
@@ -82,9 +82,9 @@ public static class Config
         return DriverTypeToFactory(_defaultDriverTypes);
     }
 
-    private static IReadOnlyList<WebDriverFactory> DriverTypeToFactory(IReadOnlyList<DriverType> driverTypes)
+    private static IReadOnlyList<IWebDriverFactory> DriverTypeToFactory(IReadOnlyList<DriverType> driverTypes)
     {
-        var factories = new List<WebDriverFactory>();
+        var factories = new List<IWebDriverFactory>();
         foreach (var driverType in driverTypes)
         {
             factories.Add(driverType switch

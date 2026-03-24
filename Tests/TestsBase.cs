@@ -6,7 +6,7 @@ using Core.WebDriver.Factory;
 using Logging;
 using Microsoft.Extensions.Logging;
 
-public abstract class TestsBase(WebDriverFactory driverFactory)
+public abstract class TestsBase(IWebDriverFactory driverFactory)
 {
     [SetUp]
     public void SetUp()

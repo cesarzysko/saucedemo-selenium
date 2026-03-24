@@ -16,7 +16,7 @@ public sealed class WebDriverWrapper
 
     private IWebDriver? _webDriver;
 
-    private WebDriverWrapper(WebDriverFactory driverFactory)
+    private WebDriverWrapper(IWebDriverFactory driverFactory)
     {
         _webDriver = driverFactory.CreateDriver();
         _wait = new WebDriverWait(_webDriver, _defaultTimeout)
@@ -27,7 +27,7 @@ public sealed class WebDriverWrapper
 
     private IWebDriver WebDriver => _webDriver!;
 
-    public static void InitializeInstance(WebDriverFactory driverFactory)
+    public static void InitializeInstance(IWebDriverFactory driverFactory)
     {
         if (_instance.Value != null)
         {

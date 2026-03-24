@@ -4,14 +4,14 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
 internal sealed class EdgeDriverFactory
-    : ChromiumDriverFactory
+    : ChromiumDriverFactory, IWebDriverFactory
 {
-    public override string GetBrowserName()
+    public string GetBrowserName()
     {
         return "Edge";
     }
 
-    public override IWebDriver CreateDriver()
+    public IWebDriver CreateDriver()
     {
         var options = CreateOptions<EdgeOptions>();
         return new EdgeDriver(options);
