@@ -2,24 +2,19 @@ namespace Core;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using WebDriver;
-using WebDriver.Factory;
 
 public static class Config
 {
     private const string UrlLabel = "Url";
-    private const string BrowsersLabel = "Browsers";
     private const string TimeoutSecondsLabel = "TimeoutSeconds";
     private const string PollingIntervalSecondsLabel = "PollingIntervalSeconds";
     private const string HeadlessLabel = "Headless";
     private const double DefaultTimeoutSeconds = 5.0;
     private const double DefaultPollingIntervalSeconds = 0.25;
 
-    private static readonly IReadOnlyList<DriverType> _defaultDriverTypes = [DriverType.Chrome];
     private static readonly IConfiguration _conf = InitConfiguration();
 
     private static bool? _urlValid;
-    private static bool? _browsersValid;
     private static bool? _timeoutSecondsValid;
     private static bool? _pollingIntervalSecondsValid;
     private static bool? _headlessValid;
@@ -27,15 +22,12 @@ public static class Config
     static Config()
     {
         Url = GetUrl();
-        DriverFactories = GetDriverFactories();
         TimeoutSeconds = GetTimeoutSeconds();
         PollingIntervalSeconds = GetPollingIntervalSeconds();
         Headless = GetHeadless();
     }
 
     public static string Url { get; private set; }
-
-    public static IReadOnlyList<IWebDriverFactory> DriverFactories { get; private set; }
 
     public static double TimeoutSeconds { get; private set; }
 
@@ -46,7 +38,6 @@ public static class Config
     public static void Validate()
     {
         ValidateUrl();
-        ValidateDriverFactories();
         ValidateTimeoutSeconds();
         ValidatePollingIntervalSeconds();
         ValidateHeadless();
@@ -69,33 +60,6 @@ public static class Config
         }
 
         return string.Empty;
-    }
-
-    private static IReadOnlyList<IWebDriverFactory> GetDriverFactories()
-    {
-        var driverTypes = _conf.Get<string[]>(BrowsersLabel)?.Select(Enum.Parse<DriverType>).ToList();
-        if (driverTypes != null && driverTypes.Count != 0)
-        {
-            return DriverTypeToFactory(driverTypes);
-        }
-
-        return DriverTypeToFactory(_defaultDriverTypes);
-    }
-
-    private static IReadOnlyList<IWebDriverFactory> DriverTypeToFactory(IReadOnlyList<DriverType> driverTypes)
-    {
-        var factories = new List<IWebDriverFactory>();
-        foreach (var driverType in driverTypes)
-        {
-            factories.Add(driverType switch
-            {
-                DriverType.Chrome => new ChromeDriverFactory(),
-                DriverType.Edge => new EdgeDriverFactory(),
-                _ => throw new ArgumentOutOfRangeException(nameof(driverTypes), driverType, null)
-            });
-        }
-
-        return factories;
     }
 
     private static double GetTimeoutSeconds()
@@ -130,18 +94,6 @@ public static class Config
         if (!_urlValid.Value)
         {
             FlowLogger.Logger.LogWarning("No valid URL could be found in the config file. Defaulting to empty URL.");
-        }
-    }
-
-    private static void ValidateDriverFactories()
-    {
-        _browsersValid ??= _conf.GetSection(BrowsersLabel).Exists() &&
-                           _conf.Get<string[]>(BrowsersLabel) is { Length: > 0 };
-        if (!_browsersValid.Value)
-        {
-            string browsersStr = $"[ {string.Join(", ", _defaultDriverTypes)} ]";
-            FlowLogger.Logger.LogWarning(
-                "No valid browsers could be found in the config file. Defaulting to \"{Browsers}\"", browsersStr);
         }
     }
 
