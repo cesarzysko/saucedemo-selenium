@@ -79,25 +79,32 @@ namespace Tests.Features
             testRunner.Given("the user is on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
         }
         
-        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithValidCredentials with Chrome and \"standard_user\", \"secret_sauce\"" +
-            "")]
-        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithValidCredentials with Edge and \"standard_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithValidCredentials with Chrome and \"problem_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithValidCredentials with Edge and \"problem_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithValidCredentials with Chrome and \"performance_glitch_user\", \"sec" +
+        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Chrome and \"standard_user\", \"s" +
+            "ecret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Edge and \"standard_user\", \"sec" +
             "ret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithValidCredentials with Edge and \"performance_glitch_user\", \"secre" +
+        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Chrome and \"problem_user\", \"se" +
+            "cret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Edge and \"problem_user\", \"secr" +
+            "et_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Chrome and \"performance_glitch" +
+            "_user\", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Edge and \"performance_glitch_u" +
+            "ser\", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Chrome and \"error_user\", \"secr" +
+            "et_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Edge and \"error_user\", \"secret" +
+            "_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Chrome and \"visual_user\", \"sec" +
+            "ret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="LoggingInWithValidCredentialsLoadsTheMainPage with Edge and \"visual_user\", \"secre" +
             "t_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithValidCredentials with Chrome and \"error_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithValidCredentials with Edge and \"error_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithValidCredentials with Chrome and \"visual_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithValidCredentials with Edge and \"visual_user\", \"secret_sauce\"")]
-        public virtual void TestLoginFormWithValidCredentials(string username, string password, string variant, string[] exampleTags)
+        public virtual void LoggingInWithValidCredentialsLoadsTheMainPage(string username, string password, string variant, string[] exampleTags)
         {
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("username", username);
             argumentsOfScenario.Add("password", password);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(string.Format("{0}: {1}", "Test Login form with valid credentials", variant), null, exampleTags, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(string.Format("{0}: {1}", "Logging in with valid credentials loads the main page", variant), null, exampleTags, argumentsOfScenario);
             this.ScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.Add("Variant", variant);
             this.ScenarioStart();

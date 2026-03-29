@@ -79,43 +79,44 @@ namespace Tests.Features
             testRunner.Given("the user is on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
         }
         
-        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"standard_user\", \"secret_sa" +
-            "uce\"")]
-        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"standard_user\", \"secret_sauc" +
-            "e\"")]
-        [NUnit.Framework.TestCaseAttribute("locked_out_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"locked_out_user\", \"secret_" +
-            "sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("locked_out_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"locked_out_user\", \"secret_sa" +
-            "uce\"")]
-        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"problem_user\", \"secret_sau" +
-            "ce\"")]
-        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"problem_user\", \"secret_sauce" +
-            "\"")]
-        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"performance_glitch_user\", " +
+        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"standard_user\"" +
+            ", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"standard_user\", " +
             "\"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"performance_glitch_user\", \"s" +
+        [NUnit.Framework.TestCaseAttribute("locked_out_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"locked_out_use" +
+            "r\", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("locked_out_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"locked_out_user\"" +
+            ", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"problem_user\"," +
+            " \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("problem_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"problem_user\", \"" +
+            "secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"performance_gl" +
+            "itch_user\", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("performance_glitch_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"performance_glit" +
+            "ch_user\", \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"error_user\", \"" +
+            "secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"error_user\", \"se" +
+            "cret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"visual_user\", " +
+            "\"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"visual_user\", \"s" +
             "ecret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"error_user\", \"secret_sauce" +
-            "\"")]
-        [NUnit.Framework.TestCaseAttribute("error_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"error_user\", \"secret_sauce\"")]
-        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"visual_user\", \"secret_sauc" +
-            "e\"")]
-        [NUnit.Framework.TestCaseAttribute("visual_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"visual_user\", \"secret_sauce\"" +
-            "")]
-        [NUnit.Framework.TestCaseAttribute("invalid_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"invalid_user\", \"secret_sau" +
-            "ce\"")]
-        [NUnit.Framework.TestCaseAttribute("invalid_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"invalid_user\", \"secret_sauce" +
-            "\"")]
-        [NUnit.Framework.TestCaseAttribute("standard_user", "sauce_secret", "Chrome", null, Category="Variant:Chrome", TestName="TestLoginFormWithOnlyUsernameProvided with Chrome and \"standard_user\", \"sauce_sec" +
-            "ret\"")]
-        [NUnit.Framework.TestCaseAttribute("standard_user", "sauce_secret", "Edge", null, Category="Variant:Edge", TestName="TestLoginFormWithOnlyUsernameProvided with Edge and \"standard_user\", \"sauce_secre" +
-            "t\"")]
-        public virtual void TestLoginFormWithOnlyUsernameProvided(string username, string password, string variant, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("invalid_user", "secret_sauce", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"invalid_user\"," +
+            " \"secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("invalid_user", "secret_sauce", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"invalid_user\", \"" +
+            "secret_sauce\"")]
+        [NUnit.Framework.TestCaseAttribute("standard_user", "sauce_secret", "Chrome", null, Category="Variant:Chrome", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Chrome and \"standard_user\"" +
+            ", \"sauce_secret\"")]
+        [NUnit.Framework.TestCaseAttribute("standard_user", "sauce_secret", "Edge", null, Category="Variant:Edge", TestName="ClearingOnlyThePasswordShowsPasswordRequiredError with Edge and \"standard_user\", " +
+            "\"sauce_secret\"")]
+        public virtual void ClearingOnlyThePasswordShowsPasswordRequiredError(string username, string password, string variant, string[] exampleTags)
         {
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("username", username);
             argumentsOfScenario.Add("password", password);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(string.Format("{0}: {1}", "Test Login form with only Username provided", variant), null, exampleTags, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(string.Format("{0}: {1}", "Clearing only the password shows password required error", variant), null, exampleTags, argumentsOfScenario);
             this.ScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.Add("Variant", variant);
             this.ScenarioStart();

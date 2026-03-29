@@ -16,15 +16,19 @@ public sealed class Hooks
         _scenarioContext = scenarioContext;
     }
 
+    [BeforeFeature]
+    public static void BeforeFeature()
+    {
+        FlowLogger.Initialize(new NUnitLoggerProvider());
+    }
+
     [BeforeScenario]
     public void BeforeScenario()
     {
+        Config.Validate();
         _scenarioContext.TryGetValue("Variant", out string browser);
         var driverType = Enum.Parse<DriverType>(browser);
         var driverFactory = WebDriverFactoryProvider.GetFactory(driverType);
-
-        FlowLogger.Initialize(new NUnitLoggerProvider());
-        Config.Validate();
         WebDriverWrapper.InitializeInstance(driverFactory);
     }
 
